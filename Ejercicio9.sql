@@ -1,0 +1,44 @@
+CREATE TABLE receta (
+id_receta INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+nombre VARCHAR(30) NOT NULL,
+tiempo_elaboracion DATE NOT NULL,
+tipo_plato VARCHAR(10) NOT NULL
+);
+
+CREATE TABLE paso (
+id_paso INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+descripcion VARCHAR(255) NOT NULL,
+id_receta INT NOT NULL,
+FOREIGN KEY (id_receta)
+REFERENCES receta (id_receta)
+ON DELETE CASCADE
+ON UPDATE CASCADE
+);
+
+CREATE TABLE utensilio (
+id_utensilio INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+nombre VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE ingrediente (
+id_ingrediente INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+nombre VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE necesita (
+id_paso INT,
+id_utensilio INT,
+id_ingrediente INT,
+FOREIGN KEY (id_paso)
+REFERENCES paso (id_paso)
+ON DELETE CASCADE
+ON UPDATE CASCADE,
+FOREIGN KEY (id_utensilio)
+REFERENCES utensilio (id_utensilio)
+ON DELETE CASCADE
+ON UPDATE CASCADE,
+FOREIGN KEY (id_ingrediente)
+REFERENCES ingrediente (id_ingrediente)
+ON DELETE CASCADE
+ON UPDATE CASCADE
+);
