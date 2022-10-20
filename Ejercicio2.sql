@@ -1,3 +1,16 @@
+CREATE TABLE estudiantes(
+dni_estudiante VARCHAR(8) NOT NULL PRIMARY KEY,
+direccion VARCHAR(50),
+nombre VARCHAR(20),
+telefono INT,
+edad int);
+
+CREATE TABLE empresa(
+cif VARCHAR(15) NOT NULL PRIMARY KEY,
+nombre VARCHAR(20),
+telefono INT,
+direccion VARCHAR(50));
+
 CREATE  TABLE trabaja(
 cif VARCHAR(15) NOT NULL,
 dni_estudiante VARCHAR (8) NOT NULL,
